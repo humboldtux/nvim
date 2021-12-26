@@ -66,6 +66,7 @@ return packer.startup(function(use)
   use 'nvim-telescope/telescope-media-files.nvim'
 
   use "akinsho/bufferline.nvim"
+  -- barbar?
 
   -- Treesitter
   -- Highlight, edit, and navigate code using a fast incremental parsing library
@@ -85,6 +86,10 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-nvim-lua" -- cmdline completions
   use 'onsails/lspkind-nvim'
 
+  --HTML
+  --emmet-vim
+  --vim-closetag
+
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
@@ -96,8 +101,14 @@ return packer.startup(function(use)
   use "neovim/nvim-lspconfig" -- enable LSP
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
-  use "jose-elias-alvarez/null-ls.nvim"
 
+  -- Formatting
+  use "jose-elias-alvarez/null-ls.nvim"
+  use 'sbdchd/neoformat'
+  use 'lukas-reineke/indent-blankline.nvim'
+
+  -- GIT
+  -- LazyGit
   use 'tpope/vim-fugitive' -- Git commands in nvim
   use 'tpope/vim-rhubarb' -- Fugitive-companion to interact with github
   use 'tpope/vim-commentary' -- "gc" to comment visual regions/lines
@@ -108,6 +119,7 @@ return packer.startup(function(use)
   --use 'glepnir/dashboard-nvim'
   use 'goolord/alpha-nvim'
   use "ahmedkhalf/project.nvim"
+  -- vim-obsession
 
   use "akinsho/toggleterm.nvim"
   use "folke/which-key.nvim"
@@ -127,8 +139,6 @@ return packer.startup(function(use)
     end,
   }
 
-  use 'sbdchd/neoformat'
-  use 'lukas-reineke/indent-blankline.nvim'
   use 'ellisonleao/glow.nvim'
 
   use 'NTBBloodbath/rest.nvim'
