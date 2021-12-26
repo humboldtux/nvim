@@ -1,4 +1,4 @@
 require "settings"
 require "keybindings"
-require "themes.darkplus"
+require "themes.nord"
 require "plugins"
