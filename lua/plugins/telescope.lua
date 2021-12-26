@@ -7,10 +7,37 @@ local actions = require "telescope.actions"
 
 telescope.setup {
   defaults = {
-
-    prompt_prefix = " ",
+    entry_prefix = "  ",
+    initial_mode = "insert",
     selection_caret = " ",
+    selection_strategy = "reset",
+    sorting_strategy = "descending",
+    layout_strategy = "horizontal",
+    file_sorter = require'telescope.sorters'.get_fuzzy_file,
+    file_ignore_patterns = {},
+    find_command = {'rg', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case'},
+    generic_sorter =require'telescope.sorters'.get_generic_fuzzy_sorter,
+    path_display = {},
+    winblend = 0,
+    border = {},
+    borderchars = {'─', '│', '─', '│', '╭', '╮', '╯', '╰'},
+    color_devicons = true,
+    use_less = true,
+    set_env = {['COLORTERM'] = 'truecolor'}, -- default = nil,
+    file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
+    grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
+    qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
+    buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker,
+    prompt_prefix = " ",
     path_display = { "smart" },
+
+    layout_config = {
+      width = 0.75,
+      prompt_position = "top",
+      preview_cutoff = 120,
+      horizontal = {mirror = false},
+      vertical = {mirror = false},
+    },
 
     mappings = {
       i = {
@@ -20,11 +47,13 @@ telescope.setup {
         ["<C-j>"] = actions.move_selection_next,
         ["<C-k>"] = actions.move_selection_previous,
 
+        --["<esc>"] = actions.close,
         ["<C-c>"] = actions.close,
 
         ["<Down>"] = actions.move_selection_next,
         ["<Up>"] = actions.move_selection_previous,
 
+        ["<CR>"] = actions.select_default + actions.center,
         ["<CR>"] = actions.select_default,
         ["<C-x>"] = actions.select_horizontal,
         ["<C-v>"] = actions.select_vertical,
@@ -56,6 +85,8 @@ telescope.setup {
         ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
         ["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
 
+        --["<C-j>"] = actions.move_selection_next,
+        --["<C-k>"] = actions.move_selection_previous,
         ["j"] = actions.move_selection_next,
         ["k"] = actions.move_selection_previous,
         ["H"] = actions.move_to_top,
@@ -94,3 +125,5 @@ telescope.setup {
     -- please take a look at the readme of the extension you want to configure
   },
 }
+
+--require("telescope").load_extension "neoclip"
