@@ -3,6 +3,11 @@ if not cmp_status_ok then
   return
 end
 
+local lspkind_status_ok, lspkind = pcall(require, "lspkind")
+if not lspkind_status_ok then
+  return
+end
+
 local snip_status_ok, luasnip = pcall(require, "luasnip")
 if not snip_status_ok then
   return
@@ -48,7 +53,8 @@ local kind_icons = {
 cmp.setup {
   snippet = {
     expand = function(args)
-      luasnip.lsp_expand(args.body) -- For `luasnip` users.
+      vim.fn["vsnip#anonymous"](args.body)
+      --luasnip.lsp_expand(args.body) -- For `luasnip` users.
     end,
   },
   mapping = {
@@ -96,22 +102,33 @@ cmp.setup {
   },
   formatting = {
     fields = { "kind", "abbr", "menu" },
+    --format = lspkind.cmp_format({with_text = true, maxwidth = 50})
     format = function(entry, vim_item)
       -- Kind icons
       vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
       -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
       vim_item.menu = ({
-        luasnip = "[Snippet]",
+        nvim_lua = "[Lua]",
+        nvim_lsp = "[LSP]",
+        look = "[Look]",
+        luasnip = "[LuaSnip]",
+        vsnip = "[VSnip]",
         buffer = "[Buffer]",
         path = "[Path]",
+        cmd = "[Cmd]",
       })[entry.source.name]
       return vim_item
     end,
   },
   sources = {
+    { name = "nvim_lsp" },
+    { name = "nvim_lua" },
+    { name = "look" },
     { name = "luasnip" },
+    { name = "vsnip" },
     { name = "buffer" },
     { name = "path" },
+    { name = "cmd" },
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
