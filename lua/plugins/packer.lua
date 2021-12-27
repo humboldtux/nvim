@@ -66,7 +66,7 @@ return packer.startup(function(use)
   use 'nvim-telescope/telescope-media-files.nvim'
 
   use "akinsho/bufferline.nvim"
-  -- barbar?
+  -- barbar? + bbye
 
   -- Treesitter
   -- Highlight, edit, and navigate code using a fast incremental parsing library
@@ -104,15 +104,8 @@ return packer.startup(function(use)
 
   -- Formatting
   use "jose-elias-alvarez/null-ls.nvim"
-  use 'sbdchd/neoformat'
   use 'lukas-reineke/indent-blankline.nvim'
-
-  -- GIT
-  -- LazyGit
-  use 'tpope/vim-fugitive' -- Git commands in nvim
-  use 'tpope/vim-rhubarb' -- Fugitive-companion to interact with github
-  use 'tpope/vim-commentary' -- "gc" to comment visual regions/lines
-  use "lewis6991/gitsigns.nvim"
+  -- use 'sbdchd/neoformat'
 
   -- Dashboard
   --use 'mhinz/vim-startify'
@@ -122,7 +115,12 @@ return packer.startup(function(use)
   -- vim-obsession
 
   use "akinsho/toggleterm.nvim"
+  --https://github.com/voldikss/vim-floaterm
   use "folke/which-key.nvim"
+
+  -- GIT
+  --use "lewis6991/gitsigns.nvim"
+  --https://github.com/akinsho/toggleterm.nvim#custom-terminals
 
   --use 'ggandor/lightspeed.nvim'
   --use 'unblevable/quick-scope'
@@ -139,6 +137,8 @@ return packer.startup(function(use)
     end,
   }
 
+  -- https://github.com/tami5/lspsaga.nvim
+
   use 'ellisonleao/glow.nvim'
 
   use 'NTBBloodbath/rest.nvim'
@@ -146,7 +146,10 @@ return packer.startup(function(use)
   use 'norcalli/nvim-colorizer.lua'
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
   use "numToStr/Comment.nvim" -- Easily comment stuff
-  use "moll/vim-bbye"
+
+  -- task
+  -- vimwiki
+  -- https://github.com/nvim-neorg/neorg
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
