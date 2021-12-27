@@ -1,3 +1,6 @@
--- https://youtu.be/RtNPfJKNr_8?list=PLhoH5vyxr6Qq41NFL4GvhFp-WLd5xzIzZ&t=664
+local status_ok, _ = pcall(vim.cmd, "colorscheme nord")
 
-vim.cmd[[colorscheme nord]]
+if not status_ok then
+  vim.notify("colorscheme nord not found!")
+  return
+end
