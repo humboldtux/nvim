@@ -13,8 +13,15 @@ null_ls.setup({
 	sources = {
 		formatting.prettier,
 		formatting.black,
+
 		--formatting.rustfmt,
 		formatting.stylua,
+
+		--Bash
+		--formatting.shellcheck,
+		--formatting.shellharden,
+		formatting.shfmt,
+
 		-- diagnostics.flake8
 	},
 	on_attach = function(client)
