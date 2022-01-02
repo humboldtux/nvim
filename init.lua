@@ -1,4 +1,5 @@
-require "settings"
-require "keybindings"
-require "themes.nord"
-require "plugins"
+require("settings")
+require("keybindings")
+require("themes.nord")
+require("plugins")
+require("autocommands")
