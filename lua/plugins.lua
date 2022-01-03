@@ -54,6 +54,13 @@ return packer.startup(function(use)
 		"nvim-lualine/lualine.nvim",
 		config = "require('plugins.lualine')",
 	})
+	use({
+		"akinsho/bufferline.nvim",
+		requires = "moll/vim-bbye", -- BDelete command
+		config = "require('plugins.bufferline')",
+	})
+	-- barbar: lualine + bbye
+
 	use("shaunsingh/nord.nvim")
 	-- use 'joshdick/onedark.vim'
 	-- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
@@ -70,12 +77,6 @@ return packer.startup(function(use)
 		config = "require('plugins.telescope')",
 	})
 	use("nvim-telescope/telescope-media-files.nvim")
-
-	use({
-		"akinsho/bufferline.nvim",
-		config = "require('plugins.bufferline')",
-	})
-	-- barbar? + bbye
 
 	-- Treesitter
 	-- Highlight, edit, and navigate code using a fast incremental parsing library
