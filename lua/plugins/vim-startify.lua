@@ -1,4 +1,4 @@
-vim.g.startify_session_dir = '~/.config/nvim/session'
+vim.g.startify_session_dir = "~/.config/nvim/session"
 --You can automatically restart a session like this
 vim.g.startify_session_autoload = 1
 -- Let Startify take care of buffers

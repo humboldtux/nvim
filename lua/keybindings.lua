@@ -69,7 +69,7 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 -- Nvimtree
 --keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
-vim.cmd[[
+vim.cmd([[
 nnoremap <silent><TAB> :BufferLineCycleNext<CR>
 nnoremap <silent><S-TAB> :BufferLineCyclePrev<CR>
-]]
+]])
