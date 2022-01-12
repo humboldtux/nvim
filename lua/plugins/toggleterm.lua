@@ -32,3 +32,18 @@ local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
 function _LAZYGIT_TOGGLE()
 	lazygit:toggle()
 end
+
+local status_ok, which_key = pcall(require, "which-key")
+if not status_ok then
+	return
+end
+
+which_key.register({
+	t = {
+		name = "Terminal",
+		g = { "<cmd>lua _LAZYGIT_TOGGLE()<cr>", "LazyGit" },
+		f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
+		h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
+		v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+	},
+}, { prefix = "<leader>" })
