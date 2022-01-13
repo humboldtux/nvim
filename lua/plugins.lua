@@ -123,7 +123,7 @@ return packer.startup(function(use)
 	-- Formatting
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
-		config = "require('plugins.null-ls')",
+		--config = "require('plugins.null-ls')",
 	})
 	use({
 		"lukas-reineke/indent-blankline.nvim",

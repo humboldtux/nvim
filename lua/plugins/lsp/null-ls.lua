@@ -13,7 +13,21 @@ null_ls.setup({
 	sources = {
 		formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
 		formatting.black.with({ extra_args = { "--fast" } }),
+
+		formatting.rustfmt,
+
 		formatting.stylua,
-    -- diagnostics.flake8
+
+		--Bash
+		formatting.shellharden,
+		formatting.shfmt,
+
+		-- diagnostics.flake8
+
 	},
+	on_attach = function(client)
+		if client.resolved_capabilities.document_formatting then
+			vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
+		end
+	end,
 })
