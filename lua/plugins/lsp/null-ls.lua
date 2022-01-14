@@ -24,6 +24,7 @@ null_ls.setup({
 
 		-- diagnostics.flake8
 
+		formatting.taplo,
 	},
 	on_attach = function(client)
 		if client.resolved_capabilities.document_formatting then
