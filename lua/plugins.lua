@@ -164,10 +164,10 @@ return packer.startup(function(use)
 
 	---- MORE
 	-----------
-	use({
-		"simrat39/rust-tools.nvim",
-		config = "require('plugins.rust-tools')",
-	})
+	--	use({
+	--	"simrat39/rust-tools.nvim",
+	--config = "require('plugins.rust-tools')",
+	--	})
 
 	use({
 		"AckslD/nvim-neoclip.lua",
