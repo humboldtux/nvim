@@ -75,6 +75,7 @@ return packer.startup(function(use)
 	use({
 		"nvim-telescope/telescope.nvim",
 		config = "require('plugins.telescope')",
+		requires = { { "nvim-telescope/telescope-file-browser.nvim" } },
 	})
 	use("nvim-telescope/telescope-media-files.nvim")
 
@@ -155,19 +156,14 @@ return packer.startup(function(use)
 		config = "require('plugins.gitsigns')",
 	})
 
+	--MOTIONS
 	--use 'ggandor/lightspeed.nvim'
 	--use 'unblevable/quick-scope'
+
 	use({
 		"lewis6991/impatient.nvim",
 		config = "require('plugins.impatient')",
 	})
-
-	---- MORE
-	-----------
-	--	use({
-	--	"simrat39/rust-tools.nvim",
-	--config = "require('plugins.rust-tools')",
-	--	})
 
 	use({
 		"AckslD/nvim-neoclip.lua",
@@ -208,7 +204,6 @@ end)
 -- https://github.com/folke/lua-dev.nvim
 --'dense-analysis/ale'
 --'ray-x/lsp_signature.nvim'
---'nvim-telescope/telescope-fzy-native.nvim'
 --'jiangmiao/auto-pairs'
 --'junegunn/goyo.vim' "distraction free writing
 --'junegunn/limelight.vim' "distraction, free writing with goyo

@@ -118,12 +118,19 @@ telescope.setup({
 		-- builtin picker
 	},
 	extensions = {
-		-- Your extension configuration goes here:
-		-- extension_name = {
-		--   extension_config_key = value,
-		-- }
-		-- please take a look at the readme of the extension you want to configure
+		file_browser = {
+			hidden = true,
+			path_display = { "smart" },
+			cwd = "~",
+			layout_strategy = "horizontal",
+			layout_config = { preview_width = 0.65, width = 0.75 },
+		},
 	},
 })
 
---require("telescope").load_extension "neoclip"
+-- https://www.youtube.com/watch?v=indguFY7wJ0&ab_channel=CodeSmell
+-- https://github.com/nvim-telescope/telescope-file-browser.nvim
+require("telescope").load_extension("file_browser")
+-- https://github.com/AckslD/nvim-neoclip.lua
+-- <C-n>
+-- require("telescope").load_extension("neoclip")
