@@ -119,10 +119,11 @@ telescope.setup({
 	},
 	extensions = {
 		file_browser = {
+			theme = "ivy",
 			hidden = true,
 			path_display = { "smart" },
 			cwd = "~",
-			layout_strategy = "horizontal",
+			--layout_strategy = "horizontal",
 			layout_config = { preview_width = 0.65, width = 0.75 },
 		},
 	},
@@ -130,6 +131,7 @@ telescope.setup({
 
 -- https://www.youtube.com/watch?v=indguFY7wJ0&ab_channel=CodeSmell
 -- https://github.com/nvim-telescope/telescope-file-browser.nvim
+--https://github.com/nvim-telescope/telescope-file-browser.nvim/issues/53
 require("telescope").load_extension("file_browser")
 -- https://github.com/AckslD/nvim-neoclip.lua
 -- <C-n>

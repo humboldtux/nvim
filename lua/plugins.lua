@@ -88,6 +88,7 @@ return packer.startup(function(use)
 	})
 	use("p00f/nvim-ts-rainbow") -- treesitter rainbow plugin
 	use("JoosepAlviste/nvim-ts-context-commentstring")
+	use("nvim-treesitter/playground")
 
 	-- Completion
 	use("hrsh7th/cmp-nvim-lsp")
