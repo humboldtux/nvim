@@ -10,6 +10,7 @@ local diagnostics = null_ls.builtins.diagnostics
 
 null_ls.setup({
 	debug = false,
+	diagnostics_format = "[#{c}] #{m} (#{s})",
 	sources = {
 		--https://rome.tools/blog/2020/08/08/introducing-rome
 		formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
@@ -20,8 +21,10 @@ null_ls.setup({
 		formatting.stylua,
 
 		--Bash
-		formatting.shellharden,
 		formatting.shfmt,
+		formatting.shellharden,
+		--:lua vim.diagnostic.open_float()
+		diagnostics.shellcheck,
 
 		-- diagnostics.flake8
 
