@@ -90,6 +90,15 @@ return packer.startup(function(use)
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 	use("nvim-treesitter/playground")
 
+	-- LSP
+	use({
+		"neovim/nvim-lspconfig",
+		config = "require('plugins.lsp')",
+	})
+	-- enable LSP
+	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
+	use("tamago324/nlsp-settings.nvim") -- language server settings defined in json for
+
 	-- Completion
 	use("hrsh7th/cmp-nvim-lsp")
 	use("hrsh7th/cmp-buffer") -- buffer completions
@@ -112,15 +121,6 @@ return packer.startup(function(use)
 	use("saadparwaiz1/cmp_luasnip") -- snippet completions
 	use("hrsh7th/cmp-vsnip")
 	use("hrsh7th/vim-vsnip")
-
-	-- LSP
-	use({
-		"neovim/nvim-lspconfig",
-		config = "require('plugins.lsp')",
-	})
-	-- enable LSP
-	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
-	use("tamago324/nlsp-settings.nvim") -- language server settings defined in json for
 
 	-- Formatting
 	use({
