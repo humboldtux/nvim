@@ -43,11 +43,16 @@ packer.init({
 
 -- Install your plugins here
 return packer.startup(function(use)
+	use({
+		"lewis6991/impatient.nvim",
+		config = "require('plugins.impatient')",
+	})
+
 	use("wbthomason/packer.nvim") -- Have packer manage itself
-	use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
+	--use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
 	use("kyazdani42/nvim-web-devicons")
-	use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight
+	--use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight
 
 	-- Themes
 	use({
@@ -57,10 +62,10 @@ return packer.startup(function(use)
 	use({
 		"akinsho/bufferline.nvim",
 		requires = "moll/vim-bbye", -- BDelete command
+		wants = "vim-bbye", -- BDelete command
 		config = "require('plugins.bufferline')",
 	})
 	-- barbar: lualine + bbye
-
 	use("shaunsingh/nord.nvim")
 	-- use 'joshdick/onedark.vim'
 	-- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
@@ -75,9 +80,15 @@ return packer.startup(function(use)
 	use({
 		"nvim-telescope/telescope.nvim",
 		config = "require('plugins.telescope')",
-		requires = { { "nvim-telescope/telescope-file-browser.nvim" } },
+		requires = {
+			"nvim-telescope/telescope-file-browser.nvim",
+			"nvim-telescope/telescope-media-files.nvim",
+		},
+		wants = {
+			"telescope-file-browser.nvim",
+			"telescope-media-files.nvim",
+		},
 	})
-	use("nvim-telescope/telescope-media-files.nvim")
 
 	-- Treesitter
 	-- Highlight, edit, and navigate code using a fast incremental parsing library
@@ -85,53 +96,76 @@ return packer.startup(function(use)
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 		config = "require('plugins.treesitter')",
+		requires = {
+			"p00f/nvim-ts-rainbow", -- treesitter rainbow plugin
+			"JoosepAlviste/nvim-ts-context-commentstring",
+			"nvim-treesitter/playground",
+		},
+		wants = {
+			"nvim-ts-rainbow", -- treesitter rainbow plugin
+			"nvim-ts-context-commentstring",
+			"playground",
+		},
 	})
-	use("p00f/nvim-ts-rainbow") -- treesitter rainbow plugin
-	use("JoosepAlviste/nvim-ts-context-commentstring")
-	use("nvim-treesitter/playground")
 
 	-- LSP
 	use({
 		"neovim/nvim-lspconfig",
 		config = "require('plugins.lsp')",
+		requires = {
+			"williamboman/nvim-lsp-installer", -- simple to use language server installer
+			"tamago324/nlsp-settings.nvim", -- language server settings defined in json for
+			"jose-elias-alvarez/null-ls.nvim",
+		},
+		wants = {
+			"nvim-lsp-installer", -- simple to use language server installer
+			"nlsp-settings.nvim", -- language server settings defined in json for
+			"null-ls.nvim",
+		},
 	})
-	-- enable LSP
-	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
-	use("tamago324/nlsp-settings.nvim") -- language server settings defined in json for
 
 	-- Completion
-	use("hrsh7th/cmp-nvim-lsp")
-	use("hrsh7th/cmp-buffer") -- buffer completions
-	use("hrsh7th/cmp-path") -- path completions
-	use("hrsh7th/cmp-cmdline") -- cmdline completions
-	use("hrsh7th/cmp-nvim-lua") -- cmdline completions
-	use("onsails/lspkind-nvim")
 	use({
 		"hrsh7th/nvim-cmp",
 		config = "require('plugins.completions')",
+		after = "nvim-lspconfig",
+		requires = {
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-buffer", -- buffer completions
+			"hrsh7th/cmp-path", -- path completions
+			"hrsh7th/cmp-cmdline", -- cmdline completions
+			"hrsh7th/cmp-nvim-lua", -- cmdline completions
+			"onsails/lspkind-nvim",
+			"L3MON4D3/LuaSnip", --snippet engine
+			"rafamadriz/friendly-snippets", -- a bunch of snippets to use
+			"saadparwaiz1/cmp_luasnip", -- snippet completions
+			"hrsh7th/cmp-vsnip",
+			"hrsh7th/vim-vsnip",
+			{
+				"windwp/nvim-autopairs",
+				config = "require('plugins.autopairs')",
+			},
+		},
+		wants = {
+			"cmp-nvim-lsp",
+			"cmp-buffer", -- buffer completions
+			"cmp-path", -- path completions
+			"cmp-cmdline", -- cmdline completions
+			"cmp-nvim-lua", -- cmdline completions
+			"lspkind-nvim",
+			"LuaSnip", --snippet engine
+			"friendly-snippets", -- a bunch of snippets to use
+			"cmp_luasnip", -- snippet completions
+			"cmp-vsnip",
+			"vim-vsnip",
+			"nvim-autopairs",
+		},
 	}) -- The completion plugin
 
-	--HTML
-	--emmet-vim
-	--vim-closetag
-
-	-- snippets
-	use("L3MON4D3/LuaSnip") --snippet engine
-	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
-	use("saadparwaiz1/cmp_luasnip") -- snippet completions
-	use("hrsh7th/cmp-vsnip")
-	use("hrsh7th/vim-vsnip")
-
-	-- Formatting
-	use({
-		"jose-elias-alvarez/null-ls.nvim",
-		--config = "require('plugins.null-ls')",
-	})
 	use({
 		"lukas-reineke/indent-blankline.nvim",
 		config = "require('plugins.indentline')",
 	})
-	-- use 'sbdchd/neoformat'
 
 	-- Dashboard
 	--use 'mhinz/vim-startify'
@@ -162,11 +196,6 @@ return packer.startup(function(use)
 	--use 'unblevable/quick-scope'
 
 	use({
-		"lewis6991/impatient.nvim",
-		config = "require('plugins.impatient')",
-	})
-
-	use({
 		"AckslD/nvim-neoclip.lua",
 		config = function()
 			require("neoclip").setup()
@@ -180,10 +209,7 @@ return packer.startup(function(use)
 	use("NTBBloodbath/rest.nvim")
 
 	use("norcalli/nvim-colorizer.lua")
-	use({
-		"windwp/nvim-autopairs",
-		config = "require('plugins.autopairs')",
-	}) -- Autopairs, integrates with both cmp and treesitter
+
 	use({
 		"numToStr/Comment.nvim",
 		config = "require('plugins.comment')",
