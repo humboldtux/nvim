@@ -1,5 +1,6 @@
+require("plugins.impatient")
 require("settings")
 require("keybindings")
 require("themes.nord")
 require("plugins")
-require("autocommands")
+--require("autocommands")

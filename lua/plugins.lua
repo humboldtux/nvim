@@ -43,16 +43,12 @@ packer.init({
 
 -- Install your plugins here
 return packer.startup(function(use)
-	use({
-		"lewis6991/impatient.nvim",
-		config = "require('plugins.impatient')",
-	})
-
 	use("wbthomason/packer.nvim") -- Have packer manage itself
-	--use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
+	use("lewis6991/impatient.nvim")
+	use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
 	use("kyazdani42/nvim-web-devicons")
-	--use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight
+	use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight
 
 	-- Themes
 	use({
@@ -125,6 +121,7 @@ return packer.startup(function(use)
 	})
 
 	-- Completion
+	-- --https://github.com/neovim/nvim-lspconfig/wiki/Snippets
 	use({
 		"hrsh7th/nvim-cmp",
 		config = "require('plugins.completions')",
@@ -141,12 +138,14 @@ return packer.startup(function(use)
 			"saadparwaiz1/cmp_luasnip", -- snippet completions
 			"hrsh7th/cmp-vsnip",
 			"hrsh7th/vim-vsnip",
+			"simrat39/rust-tools.nvim",
 			{
 				"windwp/nvim-autopairs",
 				config = "require('plugins.autopairs')",
 			},
 		},
 		wants = {
+			"rust-tools.nvim",
 			"cmp-nvim-lsp",
 			"cmp-buffer", -- buffer completions
 			"cmp-path", -- path completions
