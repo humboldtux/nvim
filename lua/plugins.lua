@@ -51,6 +51,7 @@ return packer.startup(function(use)
 	use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight
 
 	-- Themes
+	use("shaunsingh/nord.nvim")
 	use({
 		"nvim-lualine/lualine.nvim",
 		config = function()
@@ -62,8 +63,6 @@ return packer.startup(function(use)
 		requires = "moll/vim-bbye", -- BDelete command
 		config = "require('plugins.bufferline')",
 	})
-	-- barbar: lualine + bbye
-	use("shaunsingh/nord.nvim")
 
 	use({
 		"kyazdani42/nvim-tree.lua",
