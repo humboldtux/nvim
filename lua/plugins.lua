@@ -105,20 +105,8 @@ return packer.startup(function(use)
 	use({
 		"windwp/nvim-autopairs",
 		config = "require('plugins.autopairs')",
-		after = { "treesitter", "nvim-cmp" },
+		after = { "nvim-treesitter", "nvim-cmp" },
 	})
-
-	use({
-		"lukas-reineke/indent-blankline.nvim",
-		config = "require('plugins.indentline')",
-	})
-
-	-- Dashboard
-	--use 'mhinz/vim-startify'
-	--use 'glepnir/dashboard-nvim'
-	use("goolord/alpha-nvim")
-	use("ahmedkhalf/project.nvim")
-	-- vim-obsession
 
 	--https://github.com/akinsho/toggleterm.nvim#custom-terminals
 	--https://github.com/voldikss/vim-floaterm
