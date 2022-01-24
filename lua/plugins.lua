@@ -64,11 +64,6 @@ return packer.startup(function(use)
 		config = "require('plugins.bufferline')",
 	})
 
-	use({
-		"kyazdani42/nvim-tree.lua",
-		config = "require('plugins.nvim-tree')",
-	})
-
 	-- Telescope
 	use({
 		"nvim-telescope/telescope.nvim",
