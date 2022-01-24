@@ -53,7 +53,9 @@ return packer.startup(function(use)
 	-- Themes
 	use({
 		"nvim-lualine/lualine.nvim",
-		config = "require('plugins.lualine')",
+		config = function()
+			require("lualine").setup()
+		end,
 	})
 	use({
 		"akinsho/bufferline.nvim",
