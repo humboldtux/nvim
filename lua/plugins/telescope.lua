@@ -17,7 +17,6 @@ telescope.setup({
 		file_ignore_patterns = {},
 		find_command = { "rg", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case" },
 		generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
-		path_display = {},
 		winblend = 0,
 		border = {},
 		borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
@@ -54,7 +53,6 @@ telescope.setup({
 				["<Up>"] = actions.move_selection_previous,
 
 				["<CR>"] = actions.select_default + actions.center,
-				["<CR>"] = actions.select_default,
 				["<C-x>"] = actions.select_horizontal,
 				["<C-v>"] = actions.select_vertical,
 				["<C-t>"] = actions.select_tab,

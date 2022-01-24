@@ -58,14 +58,10 @@ return packer.startup(function(use)
 	use({
 		"akinsho/bufferline.nvim",
 		requires = "moll/vim-bbye", -- BDelete command
-		wants = "vim-bbye", -- BDelete command
 		config = "require('plugins.bufferline')",
 	})
 	-- barbar: lualine + bbye
 	use("shaunsingh/nord.nvim")
-	-- use 'joshdick/onedark.vim'
-	-- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
-	-- use "lunarvim/darkplus.nvim"
 
 	use({
 		"kyazdani42/nvim-tree.lua",
@@ -75,15 +71,8 @@ return packer.startup(function(use)
 	-- Telescope
 	use({
 		"nvim-telescope/telescope.nvim",
-		config = "require('plugins.telescope')",
-		requires = {
-			"nvim-telescope/telescope-file-browser.nvim",
-			"nvim-telescope/telescope-media-files.nvim",
-		},
-		wants = {
-			"telescope-file-browser.nvim",
-			"telescope-media-files.nvim",
-		},
+		"nvim-telescope/telescope-file-browser.nvim",
+		"nvim-telescope/telescope-media-files.nvim",
 	})
 
 	-- Treesitter
@@ -91,75 +80,36 @@ return packer.startup(function(use)
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
-		config = "require('plugins.treesitter')",
-		requires = {
-			"p00f/nvim-ts-rainbow", -- treesitter rainbow plugin
-			"JoosepAlviste/nvim-ts-context-commentstring",
-			"nvim-treesitter/playground",
-		},
-		wants = {
-			"nvim-ts-rainbow", -- treesitter rainbow plugin
-			"nvim-ts-context-commentstring",
-			"playground",
-		},
+		"p00f/nvim-ts-rainbow", -- treesitter rainbow plugin
+		"JoosepAlviste/nvim-ts-context-commentstring",
+		"nvim-treesitter/playground",
 	})
 
 	-- LSP
 	use({
 		"neovim/nvim-lspconfig",
-		config = "require('plugins.lsp')",
-		requires = {
-			"williamboman/nvim-lsp-installer", -- simple to use language server installer
-			"tamago324/nlsp-settings.nvim", -- language server settings defined in json for
-			"jose-elias-alvarez/null-ls.nvim",
-		},
-		wants = {
-			"nvim-lsp-installer", -- simple to use language server installer
-			"nlsp-settings.nvim", -- language server settings defined in json for
-			"null-ls.nvim",
-		},
+		"williamboman/nvim-lsp-installer", -- simple to use language server installer
+		"tamago324/nlsp-settings.nvim", -- language server settings defined in json for
+		"jose-elias-alvarez/null-ls.nvim",
+		"simrat39/rust-tools.nvim",
 	})
 
 	-- Completion
 	-- --https://github.com/neovim/nvim-lspconfig/wiki/Snippets
 	use({
 		"hrsh7th/nvim-cmp",
-		config = "require('plugins.completions')",
-		after = "nvim-lspconfig",
-		requires = {
-			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-buffer", -- buffer completions
-			"hrsh7th/cmp-path", -- path completions
-			"hrsh7th/cmp-cmdline", -- cmdline completions
-			"hrsh7th/cmp-nvim-lua", -- cmdline completions
-			"onsails/lspkind-nvim",
-			"L3MON4D3/LuaSnip", --snippet engine
-			"rafamadriz/friendly-snippets", -- a bunch of snippets to use
-			"saadparwaiz1/cmp_luasnip", -- snippet completions
-			"hrsh7th/cmp-vsnip",
-			"hrsh7th/vim-vsnip",
-			"simrat39/rust-tools.nvim",
-			{
-				"windwp/nvim-autopairs",
-				config = "require('plugins.autopairs')",
-			},
-		},
-		wants = {
-			"rust-tools.nvim",
-			"cmp-nvim-lsp",
-			"cmp-buffer", -- buffer completions
-			"cmp-path", -- path completions
-			"cmp-cmdline", -- cmdline completions
-			"cmp-nvim-lua", -- cmdline completions
-			"lspkind-nvim",
-			"LuaSnip", --snippet engine
-			"friendly-snippets", -- a bunch of snippets to use
-			"cmp_luasnip", -- snippet completions
-			"cmp-vsnip",
-			"vim-vsnip",
-			"nvim-autopairs",
-		},
-	}) -- The completion plugin
+		"hrsh7th/cmp-nvim-lsp",
+		"L3MON4D3/LuaSnip", --snippet engine
+		"onsails/lspkind-nvim",
+		"hrsh7th/cmp-buffer", -- buffer completions
+		"hrsh7th/cmp-path", -- path completions
+		"hrsh7th/cmp-cmdline", -- cmdline completions
+	})
+
+	use({
+		"windwp/nvim-autopairs",
+		config = "require('plugins.autopairs')",
+	})
 
 	use({
 		"lukas-reineke/indent-blankline.nvim",
@@ -174,11 +124,11 @@ return packer.startup(function(use)
 	-- vim-obsession
 
 	--https://github.com/akinsho/toggleterm.nvim#custom-terminals
+	--https://github.com/voldikss/vim-floaterm
 	use({
 		"akinsho/toggleterm.nvim",
 		config = "require('plugins.toggleterm')",
 	})
-	--https://github.com/voldikss/vim-floaterm
 	use({
 		"folke/which-key.nvim",
 		config = "require('plugins.whichkey')",
@@ -214,10 +164,6 @@ return packer.startup(function(use)
 		config = "require('plugins.comment')",
 	}) -- Easily comment stuff
 
-	-- task
-	-- vimwiki
-	-- https://github.com/nvim-neorg/neorg
-
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
@@ -231,16 +177,8 @@ end)
 --'dense-analysis/ale'
 --'ray-x/lsp_signature.nvim'
 --'jiangmiao/auto-pairs'
---'junegunn/goyo.vim' "distraction free writing
---'junegunn/limelight.vim' "distraction, free writing with goyo
---'vimwiki/vimwiki', { 'branch': 'dev' }
 -- https://github.com/sjl/gundo.vim
 
---Terminal
---https://github.com/voldikss/vim-floaterm
-
---'haishanh/night-owl.vim'
---'tomasiser/vim-code-dark'
 --'dylanaraps/wal'
 
 --Debugger
