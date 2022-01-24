@@ -122,6 +122,9 @@ return packer.startup(function(use)
 	-- GIT
 	use({
 		"lewis6991/gitsigns.nvim",
+		requires = {
+			"nvim-lua/plenary.nvim",
+		},
 		config = "require('plugins.gitsigns')",
 	})
 
