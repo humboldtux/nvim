@@ -107,6 +107,12 @@ return packer.startup(function(use)
 		config = "require('plugins.autopairs')",
 		after = { "nvim-treesitter", "nvim-cmp" },
 	})
+	use({
+		"numToStr/Comment.nvim",
+		config = function()
+			require("Comment").setup()
+		end,
+	})
 
 	--https://github.com/akinsho/toggleterm.nvim#custom-terminals
 	--https://github.com/voldikss/vim-floaterm
@@ -147,11 +153,6 @@ return packer.startup(function(use)
 	use("NTBBloodbath/rest.nvim")
 
 	use("norcalli/nvim-colorizer.lua")
-
-	use({
-		"numToStr/Comment.nvim",
-		config = "require('plugins.comment')",
-	}) -- Easily comment stuff
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
