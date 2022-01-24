@@ -105,6 +105,7 @@ return packer.startup(function(use)
 	use({
 		"windwp/nvim-autopairs",
 		config = "require('plugins.autopairs')",
+		after = { "treesitter", "nvim-cmp" },
 	})
 
 	use({
