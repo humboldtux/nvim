@@ -14,25 +14,13 @@ telescope.setup({
 		grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
 		qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
 		buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
-
-		mappings = {},
-	},
-	pickers = {},
-	extensions = {
-		file_browser = {
-			theme = "ivy",
-			hidden = true,
-			path_display = { "smart" },
-			--layout_strategy = "horizontal",
-			layout_config = { preview_width = 0.65, width = 0.75 },
-		},
 	},
 })
 
 -- https://www.youtube.com/watch?v=indguFY7wJ0&ab_channel=CodeSmell
 -- https://github.com/nvim-telescope/telescope-file-browser.nvim
 --https://github.com/nvim-telescope/telescope-file-browser.nvim/issues/53
-require("telescope").load_extension("file_browser")
+telescope.load_extension("file_browser")
 -- https://github.com/AckslD/nvim-neoclip.lua
 -- <C-n>
-require("telescope").load_extension("neoclip")
+telescope.load_extension("neoclip")
