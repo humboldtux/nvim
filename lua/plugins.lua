@@ -99,7 +99,6 @@ return packer.startup(function(use)
 		"onsails/lspkind-nvim",
 		"hrsh7th/cmp-buffer", -- buffer completions
 		"hrsh7th/cmp-path", -- path completions
-		"hrsh7th/cmp-cmdline", -- cmdline completions
 	})
 
 	use({

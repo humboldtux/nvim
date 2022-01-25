@@ -31,7 +31,7 @@ cmp.setup({
 	},
 	snippet = {
 		expand = function(args)
-			require("luasnip").lsp_expand(args.body)
+			luasnip.lsp_expand(args.body)
 		end,
 	},
 	sources = {
@@ -40,7 +40,6 @@ cmp.setup({
 		{ name = "luasnip" },
 		{ name = "buffer" },
 		{ name = "path" },
-		{ name = "cmd" },
 	},
 	formatting = {
 		format = lspkind.cmp_format({
@@ -51,7 +50,6 @@ cmp.setup({
 				luasnip = "[LuaSnip]",
 				buffer = "[Buffer]",
 				path = "[Path]",
-				cmd = "[Cmd]",
 			},
 		}),
 	},
