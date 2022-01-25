@@ -23,7 +23,6 @@ null_ls.setup({
 		--Bash
 		formatting.shfmt,
 		formatting.shellharden,
-		--:lua vim.diagnostic.open_float()
 		diagnostics.shellcheck,
 
 		-- diagnostics.flake8

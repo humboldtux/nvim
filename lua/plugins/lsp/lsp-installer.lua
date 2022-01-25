@@ -29,8 +29,8 @@ end
 -- Alternatively, you may also register handlers on specific server instances instead (see example below).
 lsp_installer.on_server_ready(function(server)
 	local opts = {
-		--on_attach = require("plugins.lsp.handlers").on_attach,
-		--capabilities = require("plugins.lsp.handlers").capabilities,
+		on_attach = require("plugins.lsp.handlers").on_attach,
+		capabilities = require("plugins.lsp.handlers").capabilities,
 	}
 
 	if server.name == "bashls" then
