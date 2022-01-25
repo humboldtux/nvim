@@ -9,8 +9,8 @@ bufferline.setup({
 	},
 })
 
-local status_ok, which_key = pcall(require, "which-key")
-if not status_ok then
+local status_ok_whichkey, which_key = pcall(require, "which-key")
+if not status_ok_whichkey then
 	return
 end
 which_key.register({
