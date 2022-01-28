@@ -95,10 +95,11 @@ return packer.startup(function(use)
 	use({
 		"hrsh7th/nvim-cmp",
 		"hrsh7th/cmp-nvim-lsp",
-		"L3MON4D3/LuaSnip", --snippet engine
 		"onsails/lspkind-nvim",
 		"hrsh7th/cmp-buffer", -- buffer completions
 		"hrsh7th/cmp-path", -- path completions
+		"L3MON4D3/LuaSnip", --snippet engine
+		"saadparwaiz1/cmp_luasnip",
 	})
 
 	use({
