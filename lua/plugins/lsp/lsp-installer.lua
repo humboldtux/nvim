@@ -4,16 +4,17 @@ if not status_ok then
 end
 
 local servers = {
-	"clangd",
-	"rust_analyzer",
-	"tailwindcss",
 	"bashls",
-	"yamlls",
-	"vimls",
+	"clangd",
 	"cssls",
 	"html",
 	"jsonls",
+	"rust_analyzer",
 	"sumneko_lua",
+	"tailwindcss",
+	"taplo",
+	"vimls",
+	"yamlls",
 }
 for _, name in pairs(servers) do
 	local server_is_found, server = lsp_installer.get_server(name)
